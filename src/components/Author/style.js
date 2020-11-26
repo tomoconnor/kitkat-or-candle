@@ -22,7 +22,13 @@ const LinkedIn = styled.div`
   background-color: white;
   border-radius: 5px;
 `;
-
+const Twitter = styled.div`
+  max-width: 34px;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+`;
 const Github = styled(LinkedIn)`
   margin-left: 10px;
   border-radius: 20px;
@@ -32,5 +38,6 @@ export {
   Author,
   Social,
   LinkedIn,
-  Github
+  Github,
+  Twitter
 }

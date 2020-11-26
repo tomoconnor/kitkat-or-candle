@@ -14,7 +14,7 @@ const History = styled.ul`
   list-style: none;
   color: black;
   font-size: 22px;
-  overflow: -webkit-paged-x;
+  overflow: auto;
 `;
 
 export {

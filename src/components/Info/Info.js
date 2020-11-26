@@ -48,16 +48,15 @@ class Info extends Component {
               </ModalHeader>
       
               <ModalBody fontSize={20} color="black">
-                This is a Number Guessing Game with the following rules:
+                This is a Guessing Game with the following rules:
                 <br />
                 <br />
-                1. The machine picks a random number between 1 to 100 and keeps it hidden.
+                1. The machine picks either a Kitkat Flavour, or Yankee Candle scent at random
                 <br />
                 <br />
-                2. You need to guess until you can find the hidden secret number.
+                2. You need to guess which category it fits into.
                 <br />
                 <br />
-                3. You will get feedback on how close or far your guess is in the form of the following keywords ("cold", "warm", "hot", "extremely hot").
                 <br />
                 <br />
                 Everything clear?
