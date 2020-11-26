@@ -10,8 +10,9 @@ class App extends Component {
   state = getInitialState();
 
   resetGame = () => {
-    this.setState(getInitialState());
-    this.getNextQuestion()
+    // this.setState(getInitialState());
+    // this.getNextQuestion()
+    window.location.reload(false);
   }
 
   getNextQuestion = () => {
@@ -46,11 +47,11 @@ class App extends Component {
     let nextQ = gameData.pop()
     let nextQM = nextQ[1];
 
-    if (guess == current[0]){
+    if (guess === current[0]){
       // Player Guessed Correctly
       absDiff = 100
       numberCorrect++;
-    } else if (gameData.length==0){
+    } else if (gameData.length===0){
       absDiff = 254 // game over
     }
     else {
