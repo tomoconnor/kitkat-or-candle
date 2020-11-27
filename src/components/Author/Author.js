@@ -12,7 +12,7 @@ const Author = () => (
     <Styled.Author>
       <Typography variant="h3" textAlign="center" fontSize={20}>
         <p><small>Kitkat or Yankee by </small> <strong>Tom O'Connor </strong> </p>
-        <p><small>Based on react-hot-cold-app by </small> <strong>Ivan Špoljarić</strong></p>
+        <p><small>Based on <a href={"https://github.com/ispoljari/react-hot-cold-app/"}>react-hot-cold-app</a> by Ivan Špoljarić</small></p>
       </Typography>
     </Styled.Author>
     <Styled.Social>
