@@ -65,6 +65,7 @@ class App extends Component {
    
     if (gameData.length===0) {
       absDiff = 254 // game over
+      //Player ran out of objects in array.
    
     } else if (guess === current[0]){
             // Player Guessed Correctly
@@ -73,7 +74,7 @@ class App extends Component {
       numberCorrect++;
 
       if((numberCorrect === 10)|| (attempt===9)) {
-        absDiff = 254;
+        absDiff = 254 + numberCorrect;
       }
      
     }
@@ -81,7 +82,7 @@ class App extends Component {
       // Player guessed incorrectly.
       absDiff = 0
       if (attempt === 9) {
-        absDiff = 253;
+        absDiff = 254 + numberCorrect;
       }
 
     }
@@ -89,7 +90,7 @@ class App extends Component {
     // const { actual } = this.state;
     // const { s } = this.state;
     // const absDiff = Math.abs(guess - actual);
-    const { feedbackMessage, feedbackColor } = getFeedback(absDiff);
+    const { feedbackMessage, feedbackColor } = getFeedback(absDiff, numberCorrect);
     
 
     this.setState(prevState => ({
@@ -100,7 +101,7 @@ class App extends Component {
         numberCorrect: numberCorrect,
         questionMessage: nextQM,
         feedbackMessage,
-        block: absDiff === 254
+        block: absDiff >= 254
       })
     ); 
     // this.getNextQuestion();
@@ -132,7 +133,7 @@ class App extends Component {
           <Col>
             <Styled.LandmarkContainer as="main" role="main">
               <Question question={questionMessage}/>
-              <Feedback feedback={feedbackMessage}/>
+              <Feedback feedback={feedbackMessage} />
               <Form block = {block} returnGuessToApp={value => this.updateAppState(value)}/>
               <Progress attempt={attempt} numberCorrect={numberCorrect} guess={guess} guessList={guessList}/>
               <Reset resetGame = {this.resetGame}/>

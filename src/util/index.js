@@ -21,17 +21,14 @@ export const getInitialState = () => ({
   block: false
 });
 
-export const getFeedback = absDiff => {
+export const getFeedback = (absDiff, nc) => {
   let feedbackMessage;
   let feedbackColor;
-
-  if (absDiff === 254) {
+  // let nc = Math.abs(254-absDiff);
+  if (absDiff >= 254) {
     feedbackColor= '#000';
-    feedbackMessage = 'You Won! Reset the game to play again.';
-  } else if (absDiff === 253) {
-    feedbackColor = '#000';
-    feedbackMessage = "You didn't quite make it this time.  Reset the game to play again";
-  
+    feedbackMessage = `You got ${nc} right! Reset the game to play again.`;
+    
   } else if (absDiff === 0) {
     feedbackColor= '#ff2222';
     feedbackMessage = 'Incorrect!';
