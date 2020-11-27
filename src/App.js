@@ -48,13 +48,17 @@ class App extends Component {
     let nextQM = nextQ[1];
 
     // console.log(["GDL", gameData.length])
-    if (gameData.length===0) {
+    if (gameData.length===0 ) {
       absDiff = 254 // game over
+   
     } else if (guess === current[0]){
             // Player Guessed Correctly
 
       absDiff = 100
       numberCorrect++;
+      if(numberCorrect === 10) {
+        absDiff = 254;
+      }
     }
     else {
       // Player guessed incorrectly.
