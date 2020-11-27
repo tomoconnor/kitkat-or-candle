@@ -69,7 +69,7 @@ class App extends Component {
       absDiff = 100
       numberCorrect++;
 
-      if(numberCorrect === 10) {
+      if((numberCorrect === 10)|| (attempt===9)) {
         absDiff = 254;
       }
      
