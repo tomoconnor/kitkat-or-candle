@@ -47,7 +47,7 @@ class App extends Component {
     let nextQ = gameData.pop()
     let nextQM = nextQ[1];
 
-    console.log(["GDL", gameData.length])
+    // console.log(["GDL", gameData.length])
     if (gameData.length===0) {
       absDiff = 254 // game over
     } else if (guess === current[0]){
