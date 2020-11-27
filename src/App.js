@@ -5,6 +5,7 @@ import { getInitialState, getFeedback } from './util';
 
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
+import ReactGA from 'react-ga';
 
 import {
   FacebookShareButton,
@@ -48,6 +49,8 @@ class App extends Component {
   componentDidMount(){
     this.setState(getInitialState());
     this.getNextQuestion();
+    ReactGA.initialize('G-FH1DRQE9KC');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   updateAppState = guess => {
