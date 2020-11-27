@@ -49,7 +49,7 @@ class App extends Component {
   componentDidMount(){
     this.setState(getInitialState());
     this.getNextQuestion();
-    ReactGA.initialize('G-FH1DRQE9KC');
+    ReactGA.initialize('UA-173968381-2');
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
