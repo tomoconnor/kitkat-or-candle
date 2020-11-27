@@ -6,6 +6,17 @@ import { getInitialState, getFeedback } from './util';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import * as Styled from './style';
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+} from "react-share";
+
+import {
+  FacebookIcon,
+  TwitterIcon,
+
+} from "react-share";
+
 class App extends Component { 
   state = getInitialState();
 
@@ -42,13 +53,14 @@ class App extends Component {
   updateAppState = guess => {
     const { current, gameData } = this.state;
     let { numberCorrect } = this.state;
-
+    const { attempt } = this.state;
     let absDiff = 255;
     let nextQ = gameData.pop()
     let nextQM = nextQ[1];
 
     // console.log(["GDL", gameData.length])
-    if (gameData.length===0 ) {
+   
+    if (gameData.length===0) {
       absDiff = 254 // game over
    
     } else if (guess === current[0]){
@@ -56,13 +68,18 @@ class App extends Component {
 
       absDiff = 100
       numberCorrect++;
+
       if(numberCorrect === 10) {
         absDiff = 254;
       }
+     
     }
     else {
       // Player guessed incorrectly.
       absDiff = 0
+      if (attempt === 9) {
+        absDiff = 253;
+      }
 
     }
 
@@ -88,6 +105,10 @@ class App extends Component {
 
   render() {
     const { allGuesses, feedbackMessage,questionMessage, block, attempt, guess, numberCorrect } = this.state;
+    const shareURL = "https://kitkat-or-candle.twinhost.co.uk/";
+    const hashtags = ["KitkatOrCandle"];
+    const shareIconSize = 64;
+
     const guessList = allGuesses.map((item, index) => 
       <Styled.ListItem key={index} color={item.feedbackColor}>
         <span>{item.guess}</span>
@@ -100,6 +121,7 @@ class App extends Component {
           <Col>
             <Styled.LandmarkContainer as="header" role="banner">
               <Banner />
+             
             </Styled.LandmarkContainer>
           </Col>
         </Row>
@@ -112,6 +134,17 @@ class App extends Component {
               <Progress attempt={attempt} numberCorrect={numberCorrect} guess={guess} guessList={guessList}/>
               <Reset resetGame = {this.resetGame}/>
               <Info />
+              <h2>Share this site with your friends</h2>
+              <center>
+              <TwitterShareButton url={shareURL} title={`I got ${numberCorrect}/10 on Kitkat or Candle! How many can you get?`} hashtags={hashtags}>
+                <TwitterIcon size={shareIconSize} round={false}  borderRadius={5}/>
+              </TwitterShareButton>
+     
+              <FacebookShareButton url={shareURL} quote={`I got ${numberCorrect}/10 on Kitkat or Candle! How many can you get?`} hashtag={hashtags[0]}>
+                <FacebookIcon size={shareIconSize} round={false} borderRadius={5} />
+              </FacebookShareButton>
+              </center>
+
             </Styled.LandmarkContainer>
           </Col>
         </Row>
