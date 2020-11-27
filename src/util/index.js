@@ -28,11 +28,15 @@ export const getFeedback = absDiff => {
   if (absDiff === 254) {
     feedbackColor= '#000';
     feedbackMessage = 'You Won! Reset the game to play again.';
+  } else if (absDiff === 253) {
+    feedbackColor = '#000';
+    feedbackMessage = "You didn't quite make it this time.  Reset the game to play again";
+  
   } else if (absDiff === 0) {
-    feedbackColor= '#ff5722';
+    feedbackColor= '#ff2222';
     feedbackMessage = 'Incorrect!';
   } else if (absDiff === 100) {
-    feedbackColor= '#00ff00';
+    feedbackColor= '#28a745';
     feedbackMessage = 'Correct!';
   } 
   // else if (absDiff >= 10 && absDiff < 20) {

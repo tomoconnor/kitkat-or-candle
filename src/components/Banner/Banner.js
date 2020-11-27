@@ -3,7 +3,7 @@ import { Typography } from '@smooth-ui/core-sc';
 
 const Banner = () => (
   <Typography variant="h1" textAlign="center" m={0}>
-    KITKAT or YANKEE
+    KITKAT or CANDLE
   </Typography>
 );
 
