@@ -3,7 +3,7 @@ export const selectRandomName = () => {}
 const sfetch = require('sync-fetch');
 
 export const getGameData = () => {
-  let apidata = sfetch("https://kitkat-backend.herokuapp.com/api/new").json();
+  let apidata = sfetch("https://kitkat-or-candle-backend.twinhost.co.uk/api/new").json();
   return apidata.data;
 }
 
